@@ -4,11 +4,58 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send } from "lucide-react";
+import { useState } from "react";
+import emailjs from '@emailjs/browser';
+import { useToast } from "@/hooks/use-toast";
 export function ContactSection() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted");
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        'service_1nbskaf',
+        'template_03t49ka',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Davie Choka',
+        },
+        'rMRPDiv8_bU_8YpfC'
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return <section id="contact" className="py-20 bg-muted/20">
       <div className="container mx-auto px-6">
@@ -32,22 +79,51 @@ export function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="name" className="text-card-foreground">Name</Label>
-                <Input id="name" placeholder="Your name" className="mt-2 bg-muted/50 border-border focus:border-primary" required />
+                <Input 
+                  id="name" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Your name" 
+                  className="mt-2 bg-muted/50 border-border focus:border-primary" 
+                  required 
+                />
               </div>
               
               <div>
                 <Label htmlFor="email" className="text-card-foreground">Email</Label>
-                <Input id="email" type="email" placeholder="your.email@example.com" className="mt-2 bg-muted/50 border-border focus:border-primary" required />
+                <Input 
+                  id="email" 
+                  name="email"
+                  type="email" 
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="your.email@example.com" 
+                  className="mt-2 bg-muted/50 border-border focus:border-primary" 
+                  required 
+                />
               </div>
               
               <div>
                 <Label htmlFor="message" className="text-card-foreground">Message</Label>
-                <Textarea id="message" placeholder="Tell me about your project..." className="mt-2 bg-muted/50 border-border focus:border-primary min-h-[120px]" required />
+                <Textarea 
+                  id="message" 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Tell me about your project..." 
+                  className="mt-2 bg-muted/50 border-border focus:border-primary min-h-[120px]" 
+                  required 
+                />
               </div>
               
-              <Button type="submit" className="w-full bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent text-white py-6 rounded-lg shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 group">
+              <Button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent text-white py-6 rounded-lg shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 group disabled:opacity-50 disabled:cursor-not-allowed"
+              >
                 <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </Card>

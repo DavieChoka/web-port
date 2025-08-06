@@ -40,7 +40,7 @@ export function PortfolioSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {projects.map((project, index) => <Card key={index} className="overflow-hidden bg-card border-border hover:shadow-card transition-all duration-300 hover:-translate-y-2 group">
               {/* Project Icon */}
               <div className="relative h-48 bg-gradient-to-br from-muted/30 to-muted/10 flex items-center justify-center">

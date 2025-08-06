@@ -52,7 +52,16 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && <div className="md:hidden py-4 bg-background/95 backdrop-blur-md rounded-lg mt-2 border border-border">
             <div className="flex flex-col space-y-2 px-4">
-              {navItems.map(item => {})}
+              {navItems.map(item => (
+                <Button
+                  key={item.label}
+                  variant="ghost"
+                  className="justify-start text-muted-foreground hover:text-foreground"
+                  onClick={() => scrollToSection(item.href)}
+                >
+                  {item.label}
+                </Button>
+              ))}
             </div>
           </div>}
       </div>
