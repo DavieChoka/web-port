@@ -2,12 +2,13 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
+import { TechIcon } from "./TechIcons";
 
 const projects = [
   {
     title: "Champion of the Island",
-    description: "An online media platform for reporting and tracking global natural disasters. Built with modern web technologies to provide real-time updates and insights.",
-    image: "/project-champion.jpg",
+    description: "An online media platform for reporting and tracking global natural disasters with real-time updates and comprehensive coverage.",
+    icon: "🌍",
     technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "WordPress"],
     liveUrl: "#",
     githubUrl: "#",
@@ -15,18 +16,18 @@ const projects = [
   },
   {
     title: "IoT Smart Home System",
-    description: "A comprehensive smart home automation system using Arduino and Raspberry Pi for controlling lights, temperature, and security systems.",
-    image: "/project-iot.jpg",
-    technologies: ["Arduino", "Raspberry Pi", "Python", "C++", "IoT"],
+    description: "A comprehensive smart home automation system using Arduino and Raspberry Pi with mobile app control.",
+    icon: "🏠",
+    technologies: ["Arduino", "Raspberry Pi", "Flutter", "Python", "IoT"],
     liveUrl: "#",
     githubUrl: "#",
     status: "coming-soon",
   },
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with modern UI/UX, payment integration, and inventory management capabilities.",
-    image: "/project-ecommerce.jpg",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
+    title: "Web Development Portfolio",
+    description: "A collection of responsive websites and web applications built with modern frameworks and best practices.",
+    icon: "💻",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
     liveUrl: "#",
     githubUrl: "#",
     status: "coming-soon",
@@ -52,15 +53,11 @@ export function PortfolioSection() {
               key={index}
               className="overflow-hidden bg-card border-border hover:shadow-card transition-all duration-300 hover:-translate-y-2 group"
             >
-              {/* Project Image */}
-              <div className="relative h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                {project.status === "coming-soon" ? (
-                  <div className="text-6xl opacity-50">🚧</div>
-                ) : (
-                  <div className="text-6xl">🌟</div>
-                )}
+              {/* Project Icon */}
+              <div className="relative h-48 bg-gradient-to-br from-muted/30 to-muted/10 flex items-center justify-center">
+                <div className="text-6xl">{project.icon}</div>
                 {project.status === "coming-soon" && (
-                  <Badge className="absolute top-4 right-4 bg-service-orange text-white">
+                  <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">
                     Coming Soon
                   </Badge>
                 )}
@@ -77,7 +74,8 @@ export function PortfolioSection() {
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="secondary" className="text-xs">
+                    <Badge key={techIndex} variant="secondary" className="text-xs flex items-center gap-1">
+                      <TechIcon tech={tech} className="w-3 h-3" />
                       {tech}
                     </Badge>
                   ))}
@@ -132,12 +130,13 @@ export function PortfolioSection() {
                   <h4 className="font-bold text-card-foreground mb-3">{category.category}</h4>
                   <div className="space-y-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <div
-                        key={skillIndex}
-                        className="text-sm text-muted-foreground bg-muted/50 rounded-lg py-2 px-3 hover:bg-primary/10 hover:text-primary transition-colors"
-                      >
-                        {skill}
-                      </div>
+                    <div
+                      key={skillIndex}
+                      className="text-sm text-muted-foreground bg-muted/50 rounded-lg py-2 px-3 hover:bg-primary/10 hover:text-primary transition-colors flex items-center gap-2"
+                    >
+                      <TechIcon tech={skill} className="w-4 h-4" />
+                      {skill}
+                    </div>
                     ))}
                   </div>
                 </div>

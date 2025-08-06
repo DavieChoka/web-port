@@ -16,10 +16,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71% 4%;
 
-    /* Primary Purple-Blue Theme */
-    --primary: 248 53% 58%;
+    /* Primary Blue Theme */
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 266 83% 75%;
+    --primary-glow: 189 94% 63%;
     
     /* Secondary Accent Colors */
     --secondary: 210 40% 96%;
@@ -28,7 +28,7 @@
     --muted: 210 40% 94%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 266 83% 75%;
+    --accent: 189 94% 63%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
@@ -39,9 +39,9 @@
     --ring: 248 53% 58%;
 
     /* Portfolio Specific Colors */
-    --hero-gradient: linear-gradient(135deg, hsl(248 53% 25%), hsl(266 83% 45%));
-    --card-gradient: linear-gradient(145deg, hsl(248 53% 15%), hsl(266 83% 25%));
-    --skill-gradient: linear-gradient(90deg, hsl(248 53% 58%), hsl(266 83% 75%));
+    --hero-gradient: linear-gradient(135deg, hsl(217 91% 35%), hsl(189 94% 53%));
+    --card-gradient: linear-gradient(145deg, hsl(217 91% 25%), hsl(189 94% 35%));
+    --skill-gradient: linear-gradient(90deg, hsl(217 91% 60%), hsl(189 94% 63%));
     
     /* Service Card Colors */
     --service-blue: 217 91% 60%;
@@ -90,18 +90,18 @@
     --popover: 248 53% 12%;
     --popover-foreground: 266 83% 95%;
 
-    --primary: 266 83% 75%;
-    --primary-foreground: 248 53% 8%;
-    --primary-glow: 248 53% 58%;
+    --primary: 189 94% 63%;
+    --primary-foreground: 217 91% 8%;
+    --primary-glow: 217 91% 60%;
 
-    --secondary: 248 53% 15%;
-    --secondary-foreground: 266 83% 95%;
+    --secondary: 217 91% 15%;
+    --secondary-foreground: 189 94% 95%;
 
-    --muted: 248 53% 15%;
-    --muted-foreground: 266 20% 65%;
+    --muted: 217 91% 15%;
+    --muted-foreground: 189 50% 65%;
 
-    --accent: 248 53% 58%;
-    --accent-foreground: 266 83% 95%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 189 94% 95%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
@@ -111,9 +111,9 @@
     --ring: 266 83% 75%;
 
     /* Dark mode gradients */
-    --hero-gradient: linear-gradient(135deg, hsl(248 53% 15%), hsl(266 83% 35%));
-    --card-gradient: linear-gradient(145deg, hsl(248 53% 8%), hsl(266 83% 18%));
-    --skill-gradient: linear-gradient(90deg, hsl(266 83% 75%), hsl(248 53% 58%));
+    --hero-gradient: linear-gradient(135deg, hsl(217 91% 15%), hsl(189 94% 25%));
+    --card-gradient: linear-gradient(145deg, hsl(217 91% 8%), hsl(189 94% 18%));
+    --skill-gradient: linear-gradient(90deg, hsl(189 94% 63%), hsl(217 91% 60%));
     
     /* Dark mode shadows */
     --shadow-elegant: 0 10px 30px -10px hsl(248 53% 5% / 0.8);
