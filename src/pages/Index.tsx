@@ -5,10 +5,8 @@ import { PortfolioSection } from "@/components/PortfolioSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Navigation } from "@/components/Navigation";
 import { ThemeToggle } from "@/components/ThemeToggle";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Navigation />
       <ThemeToggle />
       
@@ -25,13 +23,9 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 bg-card border-t border-border">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-muted-foreground">
-            © 2024 Davie Choka. Built with passion and modern web technologies.
-          </p>
+          <p className="text-muted-foreground">© 2024 Davie Choka. Built with passion </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
