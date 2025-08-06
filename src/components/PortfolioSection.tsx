@@ -1,0 +1,151 @@
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Github } from "lucide-react";
+
+const projects = [
+  {
+    title: "Champion of the Island",
+    description: "An online media platform for reporting and tracking global natural disasters. Built with modern web technologies to provide real-time updates and insights.",
+    image: "/project-champion.jpg",
+    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "WordPress"],
+    liveUrl: "#",
+    githubUrl: "#",
+    status: "completed",
+  },
+  {
+    title: "IoT Smart Home System",
+    description: "A comprehensive smart home automation system using Arduino and Raspberry Pi for controlling lights, temperature, and security systems.",
+    image: "/project-iot.jpg",
+    technologies: ["Arduino", "Raspberry Pi", "Python", "C++", "IoT"],
+    liveUrl: "#",
+    githubUrl: "#",
+    status: "coming-soon",
+  },
+  {
+    title: "E-Commerce Platform",
+    description: "A full-stack e-commerce solution with modern UI/UX, payment integration, and inventory management capabilities.",
+    image: "/project-ecommerce.jpg",
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
+    liveUrl: "#",
+    githubUrl: "#",
+    status: "coming-soon",
+  },
+];
+
+export function PortfolioSection() {
+  return (
+    <section id="portfolio" className="py-20 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            My <span className="text-primary">Portfolio</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            A showcase of my recent projects and technical achievements
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {projects.map((project, index) => (
+            <Card
+              key={index}
+              className="overflow-hidden bg-card border-border hover:shadow-card transition-all duration-300 hover:-translate-y-2 group"
+            >
+              {/* Project Image */}
+              <div className="relative h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                {project.status === "coming-soon" ? (
+                  <div className="text-6xl opacity-50">🚧</div>
+                ) : (
+                  <div className="text-6xl">🌟</div>
+                )}
+                {project.status === "coming-soon" && (
+                  <Badge className="absolute top-4 right-4 bg-service-orange text-white">
+                    Coming Soon
+                  </Badge>
+                )}
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3 text-card-foreground group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.map((tech, techIndex) => (
+                    <Badge key={techIndex} variant="secondary" className="text-xs">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-3">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 border-primary/20 hover:bg-primary hover:text-primary-foreground transition-colors"
+                    disabled={project.status === "coming-soon"}
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Live Demo
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 border-primary/20 hover:bg-primary hover:text-primary-foreground transition-colors"
+                    disabled={project.status === "coming-soon"}
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    Code
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* Skills Section */}
+        <div className="mt-20">
+          <Card className="p-8 bg-card border-border shadow-card">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-card-foreground mb-4">
+                Core <span className="text-accent">Competencies</span>
+              </h3>
+              <p className="text-muted-foreground">
+                Technologies and skills I use to bring ideas to life
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { category: "Frontend", skills: ["HTML/CSS", "JavaScript", "React", "Flutter"] },
+                { category: "Backend", skills: ["Node.js", "Python", "C#", "SQL"] },
+                { category: "IoT/Hardware", skills: ["Arduino", "Raspberry Pi", "C/C++", "Sensors"] },
+                { category: "Other", skills: ["Git", "WordPress", "SEO", "Digital Marketing"] },
+              ].map((category, index) => (
+                <div key={index} className="text-center">
+                  <h4 className="font-bold text-card-foreground mb-3">{category.category}</h4>
+                  <div className="space-y-2">
+                    {category.skills.map((skill, skillIndex) => (
+                      <div
+                        key={skillIndex}
+                        className="text-sm text-muted-foreground bg-muted/50 rounded-lg py-2 px-3 hover:bg-primary/10 hover:text-primary transition-colors"
+                      >
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
