@@ -33,7 +33,7 @@ export function HeroSection() {
           {/* Subtitle */}
           <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed text-zinc-200">
             A <span className="text-accent font-semibold">passionate software engineer</span> who thrives on building{" "}
-            <span className="font-semibold text-blue-700">clean, scalable, and impactful digital experiences</span>
+            <span className="font-semibold text-blue-700">clean, scalable and impactful digital experiences</span>
           </p>
 
           {/* Tech stack */}
