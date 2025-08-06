@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Davie Choka Portfolio Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Light Mode Colors */
+    --background: 240 10% 98%;
+    --foreground: 224 71% 4%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 224 71% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 224 71% 4%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
+    /* Primary Blue Theme */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 189 94% 63%;
+    
+    /* Secondary Accent Colors */
+    --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 94%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 189 94% 63%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 248 53% 58%;
 
-    --radius: 0.5rem;
+    /* Portfolio Specific Colors */
+    --hero-gradient: linear-gradient(135deg, hsl(217 91% 35%), hsl(189 94% 53%));
+    --card-gradient: linear-gradient(145deg, hsl(217 91% 25%), hsl(189 94% 35%));
+    --skill-gradient: linear-gradient(90deg, hsl(217 91% 60%), hsl(189 94% 63%));
+    
+    /* Service Card Colors */
+    --service-blue: 217 91% 60%;
+    --service-pink: 330 81% 60%;
+    --service-orange: 25 95% 53%;
+    --service-green: 142 76% 36%;
+    --service-purple: 266 83% 75%;
+    --service-cyan: 189 94% 43%;
+
+    /* Shadows and Effects */
+    --shadow-elegant: 0 10px 30px -10px hsl(248 53% 25% / 0.3);
+    --shadow-glow: 0 0 40px hsl(266 83% 75% / 0.4);
+    --shadow-card: 0 4px 20px hsl(248 53% 25% / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +80,45 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Mode - Deep Purple Theme */
+    --background: 248 53% 8%;
+    --foreground: 266 83% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 248 53% 12%;
+    --card-foreground: 266 83% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 248 53% 12%;
+    --popover-foreground: 266 83% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 189 94% 63%;
+    --primary-foreground: 217 91% 8%;
+    --primary-glow: 217 91% 60%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 217 91% 15%;
+    --secondary-foreground: 189 94% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217 91% 15%;
+    --muted-foreground: 189 50% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 189 94% 95%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 248 53% 20%;
+    --input: 248 53% 20%;
+    --ring: 266 83% 75%;
+
+    /* Dark mode gradients */
+    --hero-gradient: linear-gradient(135deg, hsl(217 91% 15%), hsl(189 94% 25%));
+    --card-gradient: linear-gradient(145deg, hsl(217 91% 8%), hsl(189 94% 18%));
+    --skill-gradient: linear-gradient(90deg, hsl(189 94% 63%), hsl(217 91% 60%));
+    
+    /* Dark mode shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(248 53% 5% / 0.8);
+    --shadow-glow: 0 0 40px hsl(266 83% 75% / 0.3);
+    --shadow-card: 0 4px 20px hsl(248 53% 5% / 0.5);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +136,29 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
   }
 }
